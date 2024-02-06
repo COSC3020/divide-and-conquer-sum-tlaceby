@@ -1,5 +1,5 @@
 /**
- * Recursive implimentation of sum where there are 3 splits.
+ * Recursive implimentation of sum where there are 3 split arrays instead of 2.
  * @param {number[]} a 
  * @returns {number}
  */
