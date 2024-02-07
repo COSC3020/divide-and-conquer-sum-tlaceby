@@ -26,3 +26,14 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+# Algorithm Analysis
+
+Let $T(n)$ be the recurrence relation representing `divideAndConquerSum`.
+
+$T(n) = \Theta(1)$ when $n \leq 1$.
+$T(n) = 3T(n/3) + \Theta(1)$ when $n > 1$.
+
+We total 3 calls to $T(n/3)$ since we create 3 seperate pivot points to divide and conquer. The reasoning behind the $n/3$ is that for each call to a new recursive step, we cut the problem space into thirds.
+
+Therefore the total time complexity of $T(n) = \Theta(n)$
