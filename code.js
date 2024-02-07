@@ -1,19 +1,25 @@
+
 /**
- * Recursive implimentation of sum where there are 3 split arrays instead of 2.
- * @param {number[]} a 
+ * @param {number[]} a
+ * @param {number} start
+ * @param {number} end 
  * @returns {number}
  */
-function divideAndConquerSum(a) {
-    if (a.length === 0) return 0;
-    if (a.length === 1) return a[0];
-    if (a.length === 2) return a[0] + a[1];
-    
-    const splitsIndex = Math.floor(a.length / 3);
-    const left = a.slice(0, splitsIndex);
-    const middle = a.slice(splitsIndex, splitsIndex * 2);
-    const right = a.slice(splitsIndex * 2, a.length);
+function divideAndConquerSum (a, start = 0, end = null) {
+    if (end === null) 
+        end = a.length;
 
-    return divideAndConquerSum(left) 
-         + divideAndConquerSum(middle) 
-         + divideAndConquerSum(right);
+    const len = (end - start);
+
+    if (len <= 1) 
+        return (len == 1) ? a[start] : 0;
+    
+
+    const size = Math.max(Math.floor(len / 3), 1);
+    const split1 = start + size;
+    const split2 = split1 + size;
+
+    return divideAndConquerSum(a, start, split1)
+        + divideAndConquerSum(a, split1, split2)
+        + divideAndConquerSum(a, split2, end);
 }
