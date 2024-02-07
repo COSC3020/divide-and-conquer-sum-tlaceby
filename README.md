@@ -34,6 +34,10 @@ Let $T(n)$ be the recurrence relation representing `divideAndConquerSum`.
 $T(n) = \Theta(1)$ when $n \leq 1$.
 $T(n) = 3T(n/3) + \Theta(1)$ when $n > 1$.
 
+For the case of $n-1$ we can see that we get the relation $T(n) = 3^1T((n-1) / 3^1)$
+
+Therefore $T(n) = (3^i) T(n / 3^i)$ where $i$ is the number of recursive steps.
+
 We total 3 calls to $T(n/3)$ since we create 3 seperate pivot points to divide and conquer. The reasoning behind the $n/3$ is that for each call to a new recursive step, we cut the problem space into thirds.
 
 Therefore the total time complexity of $T(n) = \Theta(n)$
